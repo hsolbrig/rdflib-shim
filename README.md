@@ -1,3 +1,9 @@
+[![Pyversions](https://img.shields.io/pypi/pyversions/rdflib-shim.svg)](https://pypi.python.org/pypi/rdflib-shim)
+![](https://github.com/hsolbrig/rdflib-shim/workflows/unit%20tests/badge.svg)
+[![PyPi](https://img.shields.io/pypi/v/rdflib-shim.svg)](https://pypi.python.org/pypi/rdflib-shim)
+
+
+
 # rdflib-shim
 A compatibility adapter for rdflib version 6.0.
 
