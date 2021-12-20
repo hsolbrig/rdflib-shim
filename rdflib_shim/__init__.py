@@ -1,3 +1,5 @@
+from typing import Optional
+
 from rdflib import Graph, __version__
 
 # You can reference this variable to make sure that import cleanups don't remove
@@ -19,14 +21,15 @@ if __version__.startswith("6."):
     """ Add a decode() method to what comes out of the serializer """
 
 
-    def serialize_shim(*args, **kwargs) -> DecodableStr:
+    def serialize_shim(*args, **kwargs) -> Optional[DecodableStr]:
         rval = orig_serialize(*args, **kwargs)
         return DecodableStr(rval) if isinstance(rval, str) else rval
 
     Graph.serialize = serialize_shim
 elif __version__.startswith("5."):
     """ Change the serializer output to return a (decodable) string """
-    def serialize_shim(*args, **kwargs) -> DecodableStr:
-        return DecodableStr(orig_serialize(*args, **kwargs).decode())
+    def serialize_shim(*args, **kwargs) -> Optional[DecodableStr]:
+        rval = orig_serialize(*args, **kwargs)
+        return DecodableStr(rval.decode()) if isinstance(rval, bytes) else rval
 
     Graph.serialize = serialize_shim

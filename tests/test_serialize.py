@@ -1,8 +1,11 @@
+import os
 import unittest
 
 from rdflib import Graph, RDF, RDFS, __version__
 import rdflib_shim
 # Make sure the import doesn't get removed in a cleanup
+from tests import OUTDIR
+
 shim_in = rdflib_shim.RDFLIB_SHIM
 
 expected = """@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -27,6 +30,10 @@ class SerializeTestCase(unittest.TestCase):
                 g.serialize(format="n3").decode("UTF-16")
             self.assertIn("decode() takes 1 positional argument but 2 were given", str(e.exception))
 
+    def test_serialize_to_file(self):
+        g = Graph()
+        g.add( (RDFS.Resource, RDF.type, RDFS.Resource))
+        g.serialize(os.path.join(OUTDIR, 'f.ttl'), format="turtle")
 
 if __name__ == '__main__':
     unittest.main()

@@ -133,3 +133,5 @@ dmypy.json
 
 # This is a library so no lock file
 Pipfile.lock
+
+tests/output/*

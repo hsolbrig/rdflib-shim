@@ -1,6 +1,17 @@
 CHANGES
 =======
 
-v1.0.1
+* Add badges to readme
+* Update project metadata
+* Update main.yaml
+* Update main.yaml
+* Update pypi-publish.yaml
+* Major refactor
+* Update pypi-publish.yaml
+* Add initial version and metadata
+
+v1.0.0
 ------
 
+* Initial drop
+* Initial commit
