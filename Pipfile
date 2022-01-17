@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 rdflib-jsonld = "==0.6.1"
-rdflib = ">=5.0.0"
+rdflib = ">=5.0.0, !=6.1.*"
 
 [dev-packages]
 
